@@ -1,3 +1,4 @@
+
 html {
             height: 100%;
             width: 100%;
@@ -155,4 +156,8 @@ html {
 
         input:hover {
             opacity: 0.8;
+        }
+        ::placeholder {
+            color: white;
+          
         }
