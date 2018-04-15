@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="home.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('a').click(function () {
+                $('html, body').animate({
+                    scrollTop: $($(this).attr('href')).offset().top
+                }, 1000);
+                return false;
+
+            });
+            var str = "";
+            while (str.length < 30) {
+                if (Math.random() < .5) {
+                    str = str + "0";
+                } else {
+                    str = str + "1";
+                }
+            }
+            for (i = 0; i < 7; i++) {
+                str = str + str;
+            }
+            $('#binary').text(str);
+            window.setInterval(function () {
+                /// call your function here
+                str = str.substring(1);
+                if (Math.random() < .5) {
+                    str = str + "0";
+                } else {
+                    str = str + "1";
+                }
+                $('#binary').text(str);
+            }, 1000);
+            window.setInterval(function () {
+                /// call your function here
+                var g = 45 + Math.floor(Math.random() * 17);
+                var b = Math.floor(Math.random() * 15);
+                $('#binary').css("color", 'rgb(0,' + g + "," + b + ");");
+            }, 2500);
+        });
+    </script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+   
+        <div id="main-menu">
+            <div id="menu-background">
+                <text id="binary">Scrolling Numbers</text>
+            </div>
+
+            <main>
+                    <h1 id="hacker"> <i class="fa fa-user-secret" aria-hidden="true"></i></h1>
+                <h1 id="title">Fiestel Block Cipher
+                </h1>
+
+                <div id="hide" class="result"></div>
+                <div class="encryption">
+                    <h2>Encryption
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </h2>
+                    <form>
+                        <p> Text: <input class="txt-input" id="encr" type="text" size="30" name="encryption" value=""></p>
+                        <p> Key: <input class="txt-input" id="encr-key" type="text" size="30" name="encr-key" value=""> </p>
+                        <p> Rounds: <input class="txt-input" id="encr-rounds" type="text" size="20" name="encr-rounds" value=""> </p>
+                        <input class="submit" id="submit-encription" type="submit" value="Encrypt">
+                    </form>
+                </div>
+                <div class="decryption">
+                    <h2>Decryption
+                        <i class="fa fa-unlock" aria-hidden="true"></i>
+                    </h2>
+                    <form>
+                        <p> Text:   <input class="txt-input" id="decr" type="text" name="decription" size="30" value=""> </p>
+                        <p> Key: <input class="txt-input" id="decr-key" type="text" size="30" name="decr-key" value=""> </p>
+                        <p> Rounds: <input class="txt-input" id="decr-rounds" type="text" size="20" name="decr-rounds" value=""> </p>
+                        <input class="submit" id="submit-decription" type="submit" value="Decrypt">
+                    </form>
+                </div>
+
+            </main>
+        </div>
+
+
+
+
+</body>
+
+</html>
